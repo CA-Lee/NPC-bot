@@ -49,6 +49,7 @@ def handle_text_message(event: MessageEvent):
         reply_message = actual_answer
 
     line_bot_api = LineBotApi(LINE_CHANNEL_TOKEN)
-    line_bot_api.reply_message(
-        event.reply_token, TextSendMessage(reply_message)
-    )
+    if event.source.type == "user" or reply_message == actual_answer:
+        line_bot_api.reply_message(
+            event.reply_token, TextSendMessage(reply_message)
+        )

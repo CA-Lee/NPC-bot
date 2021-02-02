@@ -41,11 +41,11 @@ def handle_text_message(event: MessageEvent):
     reply_message = """夢想，可以天花亂墜。
 理想，是我們一步一腳印，
 踩出來的坎坷道路。"""
-    if "思考" in event.message.text:
-        reply_message = actual_answer
-    if "行動" in event.message.text:
-        reply_message = actual_answer
-    if "突破" in event.message.text:
+    if (
+        (("思考" in event.message.text) and (event.source.user_id in lows))
+        or (("行動" in event.message.text) and (event.source.user_id in mids))
+        or (("突破" in event.message.text) and (event.source.user_id in highs))
+    ):
         reply_message = actual_answer
 
     line_bot_api = LineBotApi(LINE_CHANNEL_TOKEN)

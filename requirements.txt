@@ -1,3 +1,4 @@
 uvicorn
 fastapi
 line-bot-sdk
+httpx

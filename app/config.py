@@ -27,6 +27,7 @@ group = {
     "U25c5e7b6ccb183b6e8e69d763b021c6d": 7,
     "Uffd172c984d01beae3555ec6cd951f5e": 7,
     "U99af3297894284c14a22f38af5ab4402": 8,
+    "Ue70ae03be881e06fcb8c4b6bfbd074ca": 8,
 }
 
 lows = [

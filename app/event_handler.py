@@ -1,3 +1,4 @@
+import re
 from linebot import WebhookHandler, LineBotApi
 from linebot.models import MessageEvent
 from linebot.models.messages import TextMessage
@@ -11,6 +12,7 @@ from app.config import (
     lows,
     mids,
     highs,
+    url,
 )
 
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
@@ -33,9 +35,15 @@ def handle_text_message(event: MessageEvent):
     ):
         reply_message = actual_answer
         httpx.post(
-            "https://script.google.com/macros/s/AKfycbxnHqeOUccfYFuivVYFbU4XaCAaXl3v9mylkCJV5s6qXreyDnPqSKpdNQ/exec",
+            url,
             json={"group": group[event.source.user_id]},
         )
+    elif re.search(
+        "親愛的\s*[RrＲｒ][ＯｏoO][SsＳｓ][ＥｅEe]\s*[:：]\s*\n*對不起\s*[，,]\s*我應該要更有勇氣\s*[，,]\s*也要懂得思考\s*[~～]\s*如果再給我一次機會\s*[，,]\s*我會做得更好的\s*[!！]\s*\n*請你原諒我\s*[，,]\s*我愛你\s*[!！]{3}",
+        httpx.get(url).text,
+        re.IGNORECASE,
+    ):
+        reply_message = "你的家人們都在 302 教室中，趕快去把他們帶出來吧！！"
 
     line_bot_api = LineBotApi(LINE_CHANNEL_TOKEN)
     if event.source.type == "user" or reply_message == actual_answer:

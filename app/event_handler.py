@@ -33,7 +33,7 @@ def handle_text_message(event: MessageEvent):
     ):
         reply_message = actual_answer
         httpx.post(
-            "https://script.google.com/macros/s/AKfycbxSJSLxNnb0-75XC2wBnZgEEb6SGg8q1Qgv1oljkC62_baYHT7vSFpB1w/exec",
+            "https://script.google.com/macros/s/AKfycbxnHqeOUccfYFuivVYFbU4XaCAaXl3v9mylkCJV5s6qXreyDnPqSKpdNQ/exec",
             json={"group": group[event.source.user_id]},
         )
 

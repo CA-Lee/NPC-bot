@@ -40,7 +40,7 @@ def handle_text_message(event: MessageEvent):
         )
     elif re.search(
         "親愛的\s*[RrＲｒ][ＯｏoO][SsＳｓ][ＥｅEe]\s*[:：]\s*\n*對不起\s*[，,]\s*我應該要更有勇氣\s*[，,]\s*也要懂得思考\s*[~～]\s*如果再給我一次機會\s*[，,]\s*我會做得更好的\s*[!！]\s*\n*請你原諒我\s*[，,]\s*我愛你\s*[!！]{3}",
-        httpx.get(url).text,
+        httpx.get(url, params={"group": group[event.source.user_id]}).text,
         re.IGNORECASE,
     ):
         reply_message = "你的家人們都在 302 教室中，趕快去把他們帶出來吧！！"

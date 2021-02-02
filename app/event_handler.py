@@ -13,7 +13,7 @@ def handle_text_message(event: MessageEvent):
     """
     Echo the same message
     """
-
+    return
     actual_answer = "(正解)"
     reply_message = """夢想，可以天花亂墜。
 理想，是我們一步一腳印，

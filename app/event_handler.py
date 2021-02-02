@@ -37,7 +37,7 @@ def handle_text_message(event: MessageEvent):
         "U99af3297894284c14a22f38af5ab4402",
         "Ue70ae03be881e06fcb8c4b6bfbd074ca",
     ]
-    actual_answer = "(正解)"
+    actual_answer = "遠在天邊，近在眼前。"
     reply_message = """夢想，可以天花亂墜。
 理想，是我們一步一腳印，
 踩出來的坎坷道路。"""

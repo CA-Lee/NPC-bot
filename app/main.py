@@ -19,6 +19,7 @@ async def webhook_handler(request: Request):
     body = await request.body()
     sign = request.headers["x-line-signature"]
     try:
+        print(body.decode())
         handler.handle(body.decode(), sign)
     except InvalidSignatureError:
         err = (
